@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --primary-color: #9b4dca;
+    --secondary-color: #6a1b9a;
+    --accent-color: #ffd700;
+    --text-color: #e1bee7;
+    --background-dark: #1a1a2e;
+    --background-light: #2c2c4a;
+    --card-background: rgba(26, 26, 46, 0.95);
+    --shadow-color: rgba(155, 77, 202, 0.3);
+    --neon-glow: 0 0 10px var(--primary-color);
+}
+
+html, body {
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--background-light), var(--background-dark));
+    padding: 20px;
+    color: var(--text-color);
+    position: relative;
+    will-change: transform;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(155, 77, 202, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(106, 27, 154, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+    padding: 20px 0;
+    transform: translateZ(0);
+}
+
+.card {
+    background: var(--card-background);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px var(--shadow-color), var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--accent-color);
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: var(--neon-glow);
+    transform: translateZ(0);
+}
+
+.message {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.message p {
+    margin-bottom: 20px;
+    transform: translateZ(0);
+}
+
+.cake {
+    font-size: 4em;
+    text-align: center;
+    margin: 30px 0;
+    transform: translateZ(0);
+    text-shadow: var(--neon-glow);
+}
+
+.present-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    color: var(--accent-color);
+    padding: 15px 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color), var(--neon-glow);
+    transform: translateZ(0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.present-button:active {
+    transform: scale(0.95);
+}
+
+.button-text {
+    font-weight: 600;
+}
+
+.button-icon {
+    font-size: 1.2em;
+}
+
+.cat-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 46, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    transform: translateZ(0);
+}
+
+.cat-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.cat-container:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cat-content {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    max-width: 80%;
+    box-shadow: 0 15px 35px var(--shadow-color), var(--neon-glow);
+    border: 2px solid var(--accent-color);
+    transform: translateZ(0);
+}
+
+.cat-container:not(.hidden) .cat-content {
+    transform: scale(1);
+}
+
+.cat-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    margin-bottom: 20px;
+    border: 2px solid var(--accent-color);
+    transform: translateZ(0);
+}
+
+.cat-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-top: 15px;
+    text-shadow: var(--neon-glow);
+}
+
+.hearts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    transform: translateZ(0);
+}
+
+.hearts span {
+    font-size: 1.8em;
+    transform: translateZ(0);
+}
+
+.balloon {
+    position: absolute;
+    font-size: 2.5em;
+    animation: floatBalloon 4s ease-in-out infinite;
+    z-index: 1;
+    text-shadow: var(--neon-glow);
+}
+
+.balloon1 {
+    top: -30px;
+    left: 30px;
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    top: -30px;
+    right: 30px;
+    animation-delay: 1s;
+}
+
+.balloon3 {
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2s;
+}
+
+@keyframes floatBalloon {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2.8em;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+
+    .cake {
+        font-size: 3.5em;
+    }
+
+    .present-button {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+
+    .cat-message {
+        font-size: 1.8em;
+    }
+
+    .stolas-1 .stolas-image {
+        width: 160px;
+    }
+    
+    .stolas-3 .stolas-image {
+        width: 140px;
+    }
+
+    .cat-content {
+        max-width: 90%;
+    }
+    
+    .cat-image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .title {
+        font-size: 2.2em;
+    }
+
+    .message {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .message p {
+        margin-bottom: 15px;
+    }
+
+    .cake {
+        font-size: 3em;
+        margin: 20px 0;
+    }
+
+    .present-button {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+
+    .cat-message {
+        font-size: 1.6em;
+    }
+
+    .hearts span {
+        font-size: 1.5em;
+    }
+
+    .stolas-decoration {
+        bottom: 10px;
+    }
+    
+    .stolas-1 .stolas-image {
+        width: 120px;
+    }
+    
+    .stolas-3 .stolas-image {
+        width: 100px;
+    }
+
+    .cat-content {
+        max-width: 95%;
+        padding: 20px;
+    }
+    
+    .cat-image {
+        max-width: 95%;
+    }
+}
+
+/* Animações de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 1s ease-out;
+}
+
+.decorative-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent-color);
+    box-shadow: var(--neon-glow);
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+}
+
+.stolas-decoration {
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+.stolas-image {
+    height: auto;
+    filter: drop-shadow(0 0 10px var(--primary-color));
+    transform: translateZ(0);
+}
+
+.stolas-1 {
+    bottom: 20px;
+    right: 20px;
+}
+
+.stolas-1 .stolas-image {
+    width: 200px;
+}
+
+.stolas-3 {
+    bottom: 20px;
+    left: 20px;
+}
+
+.stolas-3 .stolas-image {
+    width: 180px;
+}
+
+@keyframes floatStolas {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+} 
